@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+    <logger name="com.lifeofcoder.asynctask" additivity="false">
+        <level value ="ERROR"/>
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="edgeTaskEngineLogger" additivity="false">
+        <level value ="ERROR"/>
+        <appender-ref ref="edgeTaskEngineLogger"/>
+        <appender-ref ref="console"/>
+    </logger>
+    <root>
+        <level value ="ERROR"/>
+        <appender-ref ref="console"/>
+    </root>
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %5p [%t] (%F:%L) - %m%n" />
+        </layout>
+        <!--过滤器设置输出的级别-->
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="TRACE" />
+            <param name="levelMax" value="FATAL" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+    <appender name="edgeTaskEngineLogger" class="org.apache.log4j.ConsoleAppender">
+        <param name="File" value="${log.path.prefix}/edgeTaskEngineLog.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %5p [%t] (%F:%L) - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="DEBUG" />
+            <param name="levelMax" value="FATAL" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+</log4j:configuration>
