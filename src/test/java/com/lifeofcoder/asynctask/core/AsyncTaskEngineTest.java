@@ -14,7 +14,7 @@ import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
 
-public class EdgeCallableTaskEngineTest {
+public class AsyncTaskEngineTest {
     public static final int TYPE_UNSET = -1;
     public static final int TYPE_SUCCESS = 1;
     public static final int TYPE_FAIL = 2;
